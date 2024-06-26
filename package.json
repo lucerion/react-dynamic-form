@@ -1,8 +1,8 @@
 {
-  "name": "worklogs-report",
+  "name": "react-custom-fields",
   "version": "0.0.1",
-  "description": "Worklogs report generator",
-  "repository": "https://github.com/lucerion/worklogs-report",
+  "description": "React dynamic form",
+  "repository": "https://github.com/lucerion/react-dynamic-form",
   "license": "BSD-3-Clause",
   "author": "Alexander Skachko <alexander.skachko@gmail.com>",
   "scripts": {

@@ -15,7 +15,7 @@ const Worklogs = () => {
         <Grid container spacing={4}>
           {renderWorklogs(worklogs)}
           <Grid item xs={2}>
-            <Button fullWidth variant="outlined" color="primary" size="large" onClick={addWorklog}>Add worklog</Button>
+            <Button fullWidth variant="outlined" color="primary" size="large" onClick={addWorklog}>Add</Button>
           </Grid>
         </Grid>
       )}

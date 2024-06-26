@@ -17,8 +17,8 @@ const Tabs = () => {
         <Grid item xs={12}>
           <Paper square>
             <MuiTabs value={currentTab} onChange={(_event, value) => selectTab(value)}>
-              <MuiTab label="Worklogs" />
-              <MuiTab label="Report" />
+              <MuiTab label="Fields" />
+              <MuiTab label="Result" />
             </MuiTabs>
           </Paper>
         </Grid>

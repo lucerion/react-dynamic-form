@@ -1,7 +1,4 @@
-# Worklogs report
-
-Worklogs report generator
-
+# React dynamic form
 
 ## Setup
 
@@ -16,8 +13,8 @@ Worklogs report generator
 ### Docker
 
 * [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-* Build image: `docker build -t worklogs-report .`
-* Run application: `docker run -p 8080:8080 worklogs-report`
+* Build image: `docker build -t react-dynamic-form .`
+* Run application: `docker run -p 8080:8080 react-dynamic-form`
 * Open [http://localhost:8000](http://localhost:8080) in your browser.
 
 ## License
