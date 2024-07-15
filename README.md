@@ -5,8 +5,6 @@
 ### Locally
 
 * Install dependencies: `yarn install`
-* Prepare fields file: `yarn setup`
-* Edit `fields.json`
 * Run application: `yarn start`
 * Open [http://localhost:8080](http://localhost:8080) in your browser.
 
