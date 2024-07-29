@@ -1,13 +1,14 @@
 import React, { createElement } from 'react';
 import { Consumer } from '../../store';
-import { Input, Textarea, Date } from '../Fields';
-import { STRING_TYPE, TEXT_TYPE, DATE_TYPE } from '../../const';
+import { StringField, TextField, DateField, NumberField } from '../Fields';
+import { STRING_TYPE, TEXT_TYPE, DATE_TYPE, NUMBER_TYPE } from '../../const';
 import _ from 'lodash';
 
 const FIELDS = {
-  [STRING_TYPE]: Input,
-  [TEXT_TYPE]: Textarea,
-  [DATE_TYPE]: Date,
+  [STRING_TYPE]: StringField,
+  [TEXT_TYPE]: TextField,
+  [DATE_TYPE]: DateField,
+  [NUMBER_TYPE]: NumberField,
 };
 
 const Form = () => {

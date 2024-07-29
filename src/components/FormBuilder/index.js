@@ -1,14 +1,16 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Input, Select } from '../Fields';
+import { StringField } from '../Fields';
+import { Select } from '../Inputs';
 import { Consumer } from '../../store';
-import { STRING_TYPE, TEXT_TYPE, DATE_TYPE } from '../../const';
+import { STRING_TYPE, TEXT_TYPE, DATE_TYPE, NUMBER_TYPE } from '../../const';
 
 const FIELD_TYPES_OPTIONS = {
   [STRING_TYPE]: 'String',
   [TEXT_TYPE]: 'Text',
   [DATE_TYPE]: 'Date',
+  [NUMBER_TYPE]: 'Number',
 };
 
 const DEFAULT_FIELD_TYPE = STRING_TYPE;
@@ -25,7 +27,11 @@ const FormBuilder = () => {
   const renderField = (field, deleteField, changeField) => (
     <Grid container item alignItems="center" spacing={2} key={field.id}>
       <Grid item xs={2}>
-        <Input name="name" label="Name" onChange={({ target: { value }}) => changeField({...field, name: value })} />
+        <StringField
+          name="name"
+          label="Name"
+          onChange={({ target: { value }}) => changeField({...field, name: value })}
+        />
       </Grid>
       <Grid item xs={2}>
         <Select

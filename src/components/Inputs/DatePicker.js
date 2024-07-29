@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from '@mui/lab/DatePicker';
+import { default as MuiDatePicker } from '@mui/lab/DatePicker';
 import TextField from '@mui/material/TextField';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDayjs from '@mui/lab/AdapterDayjs';
+import { DATE_FORMAT } from '../../const';
 
-const Date = ({ label, name, value, onChange, format }) => (
+const DatePicker = ({ label, name, value, onChange, format = DATE_FORMAT }) => (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DatePicker
+    <MuiDatePicker
       label={label}
       variant="outlined"
       fullWidth
@@ -20,7 +21,7 @@ const Date = ({ label, name, value, onChange, format }) => (
   </LocalizationProvider>
 );
 
-Date.propTypes = {
+DatePicker.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
@@ -28,4 +29,4 @@ Date.propTypes = {
   format: PropTypes.string,
 };
 
-export default Date;
+export default DatePicker;
