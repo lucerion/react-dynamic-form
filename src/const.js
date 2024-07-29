@@ -1,12 +1,11 @@
 const FIELD_TYPES = {
-  string: 'string',
-  select: 'select',
-  date: 'date',
-  text: 'text',
+  STRING: 'string',
+  TEXT: 'text',
+  DATE: 'date',
 };
+
+const { STRING: STRING_TYPE, TEXT: TEXT_TYPE, DATE: DATE_TYPE } = FIELD_TYPES;
 
 const DATE_FORMAT = 'DD/MMM/YYYY';
 
-const TEXT_SEPARATOR = '\n';
-
-export { FIELD_TYPES, DATE_FORMAT, TEXT_SEPARATOR };
+export { STRING_TYPE, TEXT_TYPE, DATE_TYPE, DATE_FORMAT };

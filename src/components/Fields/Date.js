@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDayjs from '@mui/lab/AdapterDayjs';
 
-const Date = ({ label, name, value, format, onChange }) => (
+const Date = ({ label, name, value, onChange, format }) => (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DatePicker
       label={label}
@@ -24,8 +24,8 @@ Date.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
-  format: PropTypes.string,
   onChange: PropTypes.func,
+  format: PropTypes.string,
 };
 
 export default Date;
