@@ -1,4 +1,5 @@
 import React, { createElement } from 'react';
+import Grid from '@mui/material/Grid';
 import { Consumer } from '../../store';
 import { StringField, TextField, DateField, NumberField } from '../Fields';
 import { STRING_TYPE, TEXT_TYPE, DATE_TYPE, NUMBER_TYPE } from '../../const';
@@ -13,11 +14,21 @@ const FIELDS = {
 
 const Form = () => {
   const renderFields = (fields) => Object.values(fields).map(renderField);
-  const renderField = ({ _id, name, type }) => createElement(FIELDS[type], { name: _.camelCase(name), label: name });
+  const renderField = ({id, name, type }) => (
+    <Grid container item spacing={2} key={id}>
+      <Grid item xs={2}>
+        {createElement(FIELDS[type], { name: _.camelCase(name), label: name })}
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Consumer>
-      {({fields}) => renderFields(fields)}
+      {({fields}) => (
+        <Grid container spacing={2}>
+          {renderFields(fields)}
+        </Grid>
+      )}
     </Consumer>
   );
 };

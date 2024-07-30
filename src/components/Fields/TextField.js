@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { default as MuiTextField } from '@mui/material/TextField';
 
-const TextField = ({ label, name, value, onChange }) => (
+const TextField = ({ name, value, label, onChange }) => (
   <MuiTextField
-    label={label}
+    multiline
     name={name}
     value={value}
+    label={label}
     onChange={onChange}
-    multiline
     fullWidth
     variant="outlined"
   />
 );
 
 TextField.propTypes = {
-  label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
+  label: PropTypes.string,
   onChange: PropTypes.func,
 };
 

@@ -6,25 +6,24 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDayjs from '@mui/lab/AdapterDayjs';
 import { DATE_FORMAT } from '../../const';
 
-const DatePicker = ({ label, name, value, onChange, format = DATE_FORMAT }) => (
+const DatePicker = ({ name, value, label, onChange, format = DATE_FORMAT }) => (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <MuiDatePicker
-      label={label}
-      variant="outlined"
-      fullWidth
       name={name}
       value={value}
       onChange={onChange}
+      label={label}
       inputFormat={format}
-      renderInput={(params) => <TextField {...params} />}
+      renderInput={(params) => <TextField fullWidth {...params} />}
+      variant="outlined"
     />
   </LocalizationProvider>
 );
 
 DatePicker.propTypes = {
-  label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
+  label: PropTypes.string,
   onChange: PropTypes.func,
   format: PropTypes.string,
 };

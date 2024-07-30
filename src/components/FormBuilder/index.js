@@ -51,7 +51,7 @@ const FormBuilder = () => {
   return (
     <Consumer>
       {({ fields, addField, deleteField, changeField }) => (
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
           {renderFields(fields, deleteField, changeField)}
           <Grid item xs={2}>
             <Button

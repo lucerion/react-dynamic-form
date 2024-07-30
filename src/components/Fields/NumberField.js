@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 
-const NumberField = ({ label, name, value, onChange }) => (
+const NumberField = ({ name, value, label, onChange }) => (
   <TextField
     type="number"
-    label={label}
-    variant="outlined"
     name={name}
     value={value}
+    label={label}
     onChange={onChange}
     fullWidth
+    variant="outlined"
   />
 );
 
 NumberField.propTypes = {
-  label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
+  label: PropTypes.string,
   onChange: PropTypes.func,
 };
 

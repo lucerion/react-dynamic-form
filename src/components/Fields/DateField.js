@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { DatePicker } from '../Inputs';
 import { DATE_FORMAT } from '../../const';
 
-const DateField = ({ label, name, format = DATE_FORMAT}) => {
+const DateField = ({ name, label, format = DATE_FORMAT}) => {
   const [value, setValue] = useState('');
 
   return (
     <DatePicker
-      label={label}
       name={name}
       value={value}
+      label={label}
       onChange={setValue}
       format={format}
     />
@@ -18,8 +18,8 @@ const DateField = ({ label, name, format = DATE_FORMAT}) => {
 };
 
 DateField.propTypes = {
-  label: PropTypes.string,
   name: PropTypes.string,
+  label: PropTypes.string,
   format: PropTypes.string,
 };
 
