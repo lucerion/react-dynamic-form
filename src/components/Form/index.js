@@ -14,22 +14,21 @@ const FIELDS = {
 
 const Form = () => {
   const renderFields = (fields) => Object.values(fields).map(renderField);
-  const renderField = ({id, name, type }) => (
+
+  const renderField = ({ id, name, type }) => (
     <Grid container item spacing={2} key={id}>
       <Grid item xs={2}>
-        {createElement(FIELDS[type], { name: _.camelCase(name), label: name })}
+        {createElement(FIELDS[type], { name: _.camelCase(name), label: name, fullWidth: true, variant: 'outlined' })}
       </Grid>
     </Grid>
   );
 
   return (
-    <Consumer>
-      {({fields}) => (
-        <Grid container spacing={2}>
-          {renderFields(fields)}
-        </Grid>
-      )}
-    </Consumer>
+    <Grid container spacing={2}>
+      <Consumer>
+        {({ fields }) => renderFields(fields)}
+      </Consumer>
+    </Grid>
   );
 };
 

@@ -1,19 +1,11 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { StringField } from '../Fields';
-import { Select } from '../Inputs';
 import { Consumer } from '../../store';
-import { STRING_TYPE, TEXT_TYPE, DATE_TYPE, NUMBER_TYPE } from '../../const';
-
-const FIELD_TYPES_OPTIONS = {
-  [STRING_TYPE]: 'String',
-  [TEXT_TYPE]: 'Text',
-  [DATE_TYPE]: 'Date',
-  [NUMBER_TYPE]: 'Number',
-};
-
-const DEFAULT_FIELD_TYPE = STRING_TYPE;
+import NameField from './NameField';
+import TypeField from './TypeField';
+import AddFieldButton from './AddFieldButton';
+import DeleteFieldButton from './DeleteFieldButton';
+import { DEFAULT_FIELD_TYPE } from '../../const';
 
 const DEFAULT_FIELD = {
   name: '',
@@ -21,52 +13,32 @@ const DEFAULT_FIELD = {
 };
 
 const FormBuilder = () => {
-  const renderFields = (fields, deleteField, changeField) =>
-    Object.values(fields).map((field) => renderField(field, deleteField, changeField));
+  const renderFields = (fields) => Object.values(fields).map(renderField);
 
-  const renderField = (field, deleteField, changeField) => (
+  const renderField = (field) => (
     <Grid container item alignItems="center" spacing={2} key={field.id}>
       <Grid item xs={2}>
-        <StringField
-          name="name"
-          label="Name"
-          onChange={({ target: { value }}) => changeField({...field, name: value })}
-        />
+        <NameField field={field} fullWidth variant="outlined" />
       </Grid>
       <Grid item xs={2}>
-        <Select
-          name="type"
-          label="Type"
-          value={field.type || DEFAULT_FIELD_TYPE}
-          items={FIELD_TYPES_OPTIONS}
-          onChange={({ target: { value }}) => changeField({...field, type: value })}
-        />
+        <TypeField field={field} fullWidth variant="outlined" />
       </Grid>
       <Grid item xs={1}>
-        <Button variant="outlined" color="secondary" size="large" onClick={() => deleteField(field)}>x</Button>
+        <DeleteFieldButton field={field} variant="outlined" color="secondary" size="large" />
       </Grid>
     </Grid>
   );
 
   return (
-    <Consumer>
-      {({ fields, addField, deleteField, changeField }) => (
-        <Grid container spacing={2}>
-          {renderFields(fields, deleteField, changeField)}
-          <Grid item xs={2}>
-            <Button
-              fullWidth
-              variant="outlined"
-              color="primary"
-              size="large"
-              onClick={() => addField(DEFAULT_FIELD)}
-            >
-              Add
-            </Button>
-          </Grid>
-        </Grid>
-      )}
-    </Consumer>
+    <Grid container spacing={2}>
+      <Consumer>
+        {({ fields }) => renderFields(fields)}
+      </Consumer>
+      <Grid item xs={2}>
+        <AddFieldButton field={DEFAULT_FIELD} fullWidth variant="outlined" color="primary" size="large" />
+      </Grid>
+    </Grid>
+
   );
 };
 

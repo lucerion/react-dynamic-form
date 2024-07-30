@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 
-const StringField = ({ name, value, label, onChange }) => (
+const StringField = ({ name, value, label, onChange, ...props }) => (
   <TextField
     name={name}
     value={value}
     label={label}
     onChange={onChange}
-    fullWidth
-    variant="outlined"
+    {...props}
   />
 );
 
