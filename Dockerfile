@@ -1,16 +1,11 @@
 from node:18.15-bullseye
 
-ARG DEV_PACKAGES="yarn"
+WORKDIR /worklogs-report
 
-RUN apt-get update -qq && \
-    apt-get install -yq --no-install-recommends $DEV_PACKAGES
-
-WORKDIR /react-dynamic-form
-
-RUN yarn setup
-
-COPY . .
+COPY package.json yarn.lock ./
 
 RUN yarn install
+
+COPY . .
 
 CMD ["yarn", "start"]

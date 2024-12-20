@@ -12,7 +12,7 @@
 
 * [Install Docker](https://docs.docker.com/get-docker/) on your machine.
 * Build image: `docker build -t react-dynamic-form .`
-* Run application: `docker run -p 8080:8080 react-dynamic-form`
+* Run application: `docker run -it -p 8080:8080 -v $(pwd):/react-dynamic-form react-dynamic-form`
 * Open [http://localhost:8000](http://localhost:8080) in your browser.
 
 ## License
